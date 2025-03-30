@@ -1,9 +1,7 @@
-//weather application
+const env=require('dotenv');
+env.config(); // Load environment variables from .env file
+const API_KEY =process.env.KEY;
 
-
-
-//my api key
-const apiKey ="******************************";
 //weather api url
 const apiUrl ="https://api.openweathermap.org/data/2.5/weather?&units=metric&q="; 
 
@@ -15,7 +13,7 @@ const weatherIcon=document.querySelector(".weather-icon");
 //function
 async function checkWeather(city){
     try{
-        const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+        const response = await fetch(apiUrl + city + `&appid=${API_KEY}`);
         // console.log(response);
         var data = await response.json();
         console.log(data);
